@@ -1,0 +1,79 @@
+import arcade
+
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 600
+
+
+def tiles():
+    for x in range(0, 600, 150):
+        for y in range(0, 600, 150):
+            arcade.draw_lrtb_rectangle_filled(x, x + 74, y + 74, y, arcade.csscolor.WHITE)
+
+    for x in range(75, 600, 150):
+        for y in range(75, 600, 150):
+            arcade.draw_lrtb_rectangle_filled(x, x + 74, y + 74, y, arcade.csscolor.WHITE)
+
+
+def rooks():
+    arcade.draw_lrtb_rectangle_filled(20, 55, 65, 10, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_lrtb_rectangle_filled(545, 580, 590, 535, arcade.csscolor.SANDY_BROWN)
+
+    arcade.draw_lrtb_rectangle_filled(545, 580, 65, 10, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_lrtb_rectangle_filled(20, 55, 590, 535, arcade.csscolor.SANDY_BROWN)
+
+
+def knights():
+    arcade.draw_triangle_filled(95, 10, 130, 10, 112, 65, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_triangle_filled(470, 10, 505, 10, 487, 65, arcade.csscolor.ROSY_BROWN)
+
+    arcade.draw_triangle_filled(95, 535, 130, 535, 112, 590, arcade.csscolor.SANDY_BROWN)
+    arcade.draw_triangle_filled(470, 535, 505, 535, 487, 590, arcade.csscolor.SANDY_BROWN)
+
+
+def bishops():
+    arcade.draw_circle_filled(187, 37, 20, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_circle_filled(412, 37, 20, arcade.csscolor.ROSY_BROWN)
+
+    arcade.draw_circle_filled(187, 563, 20, arcade.csscolor.SANDY_BROWN)
+    arcade.draw_circle_filled(412, 563, 20, arcade.csscolor.SANDY_BROWN)
+
+
+def queens():
+    arcade.draw_ellipse_filled(262, 37, 30, 60, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_ellipse_filled(262, 562, 30, 60, arcade.csscolor.SANDY_BROWN)
+
+
+def kings():
+    arcade.draw_rectangle_filled(337, 37, 10, 60, arcade.csscolor.ROSY_BROWN)
+    arcade.draw_rectangle_filled(337, 47, 40, 10, arcade.csscolor.ROSY_BROWN)
+
+    arcade.draw_rectangle_filled(337, 562, 10, 60, arcade.csscolor.SANDY_BROWN)
+    arcade.draw_rectangle_filled(337, 572, 40, 10, arcade.csscolor.SANDY_BROWN)
+
+
+def pawns():
+    x = 35
+    for i in range(8):
+        arcade.draw_rectangle_filled(x, 110, 30, 30, arcade.csscolor.ROSY_BROWN)
+        arcade.draw_rectangle_filled(x, 490, 30, 30, arcade.csscolor.SANDY_BROWN)
+        x += 75
+
+
+def main():
+
+    arcade.open_window(SCREEN_WIDTH, SCREEN_HEIGHT, "Drawing test")
+    arcade.set_background_color(arcade.color.BLACK)
+    arcade.start_render()
+    tiles()
+    rooks()
+    knights()
+    bishops()
+    queens()
+    kings()
+    pawns()
+    arcade.finish_render()
+    arcade.run()
+
+
+main()
+
